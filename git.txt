@@ -1,59 +1,64 @@
-Ò»¡¢ Git ³£ÓÃÃüÁîËÙ²é
-git branch ²é¿´±¾µØËùÓĞ·ÖÖ§
-git status ²é¿´µ±Ç°×´Ì¬ 
-git commit Ìá½» 
-git branch -a ²é¿´ËùÓĞµÄ·ÖÖ§
-git branch -r ²é¿´Ô¶³ÌËùÓĞ·ÖÖ§
-git commit -am "init" Ìá½»²¢ÇÒ¼Ó×¢ÊÍ 
+ä¸€ã€ Git å¸¸ç”¨å‘½ä»¤é€ŸæŸ¥
+git branch æŸ¥çœ‹æœ¬åœ°æ‰€æœ‰åˆ†æ”¯
+git status æŸ¥çœ‹å½“å‰çŠ¶æ€ 
+git commit æäº¤ 
+git branch -a æŸ¥çœ‹æ‰€æœ‰çš„åˆ†æ”¯
+git branch -r æŸ¥çœ‹è¿œç¨‹æ‰€æœ‰åˆ†æ”¯
+git commit -am "init" æäº¤å¹¶ä¸”åŠ æ³¨é‡Š 
 git remote add origin git@192.168.1.119:ndshow
-git push origin master ½«ÎÄ¼ş¸øÍÆµ½·şÎñÆ÷ÉÏ 
-git remote show origin ÏÔÊ¾Ô¶³Ì¿âoriginÀïµÄ×ÊÔ´ 
+git push origin master å°†æ–‡ä»¶ç»™æ¨åˆ°æœåŠ¡å™¨ä¸Š 
+git remote show origin æ˜¾ç¤ºè¿œç¨‹åº“originé‡Œçš„èµ„æº 
 git push origin master:develop
-git push origin master:hb-dev ½«±¾µØ¿âÓë·şÎñÆ÷ÉÏµÄ¿â½øĞĞ¹ØÁª 
-git checkout --track origin/dev ÇĞ»»µ½Ô¶³Ìdev·ÖÖ§
-git branch -D master develop É¾³ı±¾µØ¿âdevelop
-git checkout -b dev ½¨Á¢Ò»¸öĞÂµÄ±¾µØ·ÖÖ§dev
-git merge origin/dev ½«·ÖÖ§devÓëµ±Ç°·ÖÖ§½øĞĞºÏ²¢
-git checkout dev ÇĞ»»µ½±¾µØdev·ÖÖ§
-git remote show ²é¿´Ô¶³Ì¿â
+git push origin master:hb-dev å°†æœ¬åœ°åº“ä¸æœåŠ¡å™¨ä¸Šçš„åº“è¿›è¡Œå…³è” 
+git checkout --track origin/dev åˆ‡æ¢åˆ°è¿œç¨‹devåˆ†æ”¯
+git branch -D master develop åˆ é™¤æœ¬åœ°åº“develop
+git checkout -b dev å»ºç«‹ä¸€ä¸ªæ–°çš„æœ¬åœ°åˆ†æ”¯dev
+git merge origin/dev å°†åˆ†æ”¯devä¸å½“å‰åˆ†æ”¯è¿›è¡Œåˆå¹¶
+git checkout dev åˆ‡æ¢åˆ°æœ¬åœ°devåˆ†æ”¯
+git checkout -f dev å¼ºåˆ¶åˆ‡æ¢åˆ°æœ¬åœ°devåˆ†æ”¯ï¼Œæœ¬åœ°æ”¹åŠ¨å°†è¢«ä¸¢å¼ƒ
+git remote show æŸ¥çœ‹è¿œç¨‹åº“
 git add .
-git rm ÎÄ¼şÃû(°üÀ¨Â·¾¶) ´ÓgitÖĞÉ¾³ıÖ¸¶¨ÎÄ¼ş
-git clone git://github.com/schacon/grit.git ´Ó·şÎñÆ÷ÉÏ½«´úÂë¸øÀ­ÏÂÀ´
-git config --list ¿´ËùÓĞÓÃ»§
-git ls-files ¿´ÒÑ¾­±»Ìá½»µÄ
-git rm [file name] É¾³ıÒ»¸öÎÄ¼ş
-git commit -a Ìá½»µ±Ç°reposµÄËùÓĞµÄ¸Ä±ä
-git add [file name] Ìí¼ÓÒ»¸öÎÄ¼şµ½git index
-git commit -v µ±ÄãÓÃ£­v²ÎÊıµÄÊ±ºò¿ÉÒÔ¿´commitµÄ²îÒì
-git commit -m "This is the message describing the commit" Ìí¼ÓcommitĞÅÏ¢
-git commit -a -aÊÇ´ú±íadd£¬°ÑËùÓĞµÄchange¼Óµ½git indexÀïÈ»ºóÔÙcommit
-git commit -a -v Ò»°ãÌá½»ÃüÁî
-git log ¿´ÄãcommitµÄÈÕÖ¾
-git diff ²é¿´ÉĞÎ´Ôİ´æµÄ¸üĞÂ
-git rm a.a ÒÆ³ıÎÄ¼ş(´ÓÔİ´æÇøºÍ¹¤×÷ÇøÖĞÉ¾³ı)
-git rm --cached a.a ÒÆ³ıÎÄ¼ş(Ö»´ÓÔİ´æÇøÖĞÉ¾³ı)
-git commit -m "remove" ÒÆ³ıÎÄ¼ş(´ÓGitÖĞÉ¾³ı)
-git rm -f a.a Ç¿ĞĞÒÆ³ıĞŞ¸ÄºóÎÄ¼ş(´ÓÔİ´æÇøºÍ¹¤×÷ÇøÖĞÉ¾³ı)
-git diff --cached »ò $ git diff --staged ²é¿´ÉĞÎ´Ìá½»µÄ¸üĞÂ
-git stash push ½«ÎÄ¼ş¸øpushµ½Ò»¸öÁÙÊ±¿Õ¼äÖĞ
-git stash pop ½«ÎÄ¼ş´ÓÁÙÊ±¿Õ¼äpopÏÂÀ´
+git rm æ–‡ä»¶å(åŒ…æ‹¬è·¯å¾„) ä»gitä¸­åˆ é™¤æŒ‡å®šæ–‡ä»¶
+git clone git://github.com/schacon/grit.git ä»æœåŠ¡å™¨ä¸Šå°†ä»£ç ç»™æ‹‰ä¸‹æ¥
+git config --list çœ‹æ‰€æœ‰ç”¨æˆ·
+git ls-files çœ‹å·²ç»è¢«æäº¤çš„
+git rm [file name] åˆ é™¤ä¸€ä¸ªæ–‡ä»¶
+git commit -a æäº¤å½“å‰reposçš„æ‰€æœ‰çš„æ”¹å˜
+git add [file name] æ·»åŠ ä¸€ä¸ªæ–‡ä»¶åˆ°git index
+git commit -v å½“ä½ ç”¨ï¼vå‚æ•°çš„æ—¶å€™å¯ä»¥çœ‹commitçš„å·®å¼‚
+git commit -m "This is the message describing the commit" æ·»åŠ commitä¿¡æ¯
+git commit -a -aæ˜¯ä»£è¡¨addï¼ŒæŠŠæ‰€æœ‰çš„changeåŠ åˆ°git indexé‡Œç„¶åå†commit
+git commit -a -v ä¸€èˆ¬æäº¤å‘½ä»¤
+git log çœ‹ä½ commitçš„æ—¥å¿—
+git diff æŸ¥çœ‹å°šæœªæš‚å­˜çš„æ›´æ–°
+git rm a.a ç§»é™¤æ–‡ä»¶(ä»æš‚å­˜åŒºå’Œå·¥ä½œåŒºä¸­åˆ é™¤)
+git rm --cached a.a ç§»é™¤æ–‡ä»¶(åªä»æš‚å­˜åŒºä¸­åˆ é™¤)
+git commit -m "remove" ç§»é™¤æ–‡ä»¶(ä»Gitä¸­åˆ é™¤)
+git rm -f a.a å¼ºè¡Œç§»é™¤ä¿®æ”¹åæ–‡ä»¶(ä»æš‚å­˜åŒºå’Œå·¥ä½œåŒºä¸­åˆ é™¤)
+git diff --cached æˆ– $ git diff --staged æŸ¥çœ‹å°šæœªæäº¤çš„æ›´æ–°
+git stash push å°†æ–‡ä»¶ç»™pushåˆ°ä¸€ä¸ªä¸´æ—¶ç©ºé—´ä¸­
+git stash pop å°†æ–‡ä»¶ä»ä¸´æ—¶ç©ºé—´popä¸‹æ¥
+---------------------------------------------------------
+æ¸…é™¤æœªè·Ÿè¸ªæ–‡ä»¶
+git clean n  //è¿™ä¸ªæ˜¯æ¸…é™¤æ–‡ä»¶é¢„è§ˆ
+git clean -f //å¼ºåˆ¶æ¸…é™¤æ–‡ä»¶
 ---------------------------------------------------------
 git remote add origin git@github.com:username/Hello-World.git
-git push origin master ½«±¾µØÏîÄ¿¸øÌá½»µ½·şÎñÆ÷ÖĞ
+git push origin master å°†æœ¬åœ°é¡¹ç›®ç»™æäº¤åˆ°æœåŠ¡å™¨ä¸­
 -----------------------------------------------------------
-git pull ±¾µØÓë·şÎñÆ÷¶ËÍ¬²½
+git pull æœ¬åœ°ä¸æœåŠ¡å™¨ç«¯åŒæ­¥
 -----------------------------------------------------------------
-git push (Ô¶³Ì²Ö¿âÃû) (·ÖÖ§Ãû) ½«±¾µØ·ÖÖ§ÍÆËÍµ½·şÎñÆ÷ÉÏÈ¥¡£
+git push (è¿œç¨‹ä»“åº“å) (åˆ†æ”¯å) å°†æœ¬åœ°åˆ†æ”¯æ¨é€åˆ°æœåŠ¡å™¨ä¸Šå»ã€‚
 git push origin serverfix:awesomebranch
 ------------------------------------------------------------------
-git fetch Ïàµ±ÓÚÊÇ´ÓÔ¶³Ì»ñÈ¡×îĞÂ°æ±¾µ½±¾µØ£¬²»»á×Ô¶¯merge
-git commit -a -m "log_message" (-aÊÇÌá½»ËùÓĞ¸Ä¶¯£¬-mÊÇ¼ÓÈëlogĞÅÏ¢) ±¾µØĞŞ¸ÄÍ¬²½ÖÁ·şÎñÆ÷¶Ë £º
-git branch branch_0.1 master ´ÓÖ÷·ÖÖ§master´´½¨branch_0.1·ÖÖ§
-git branch -m branch_0.1 branch_1.0 ½«branch_0.1ÖØÃüÃûÎªbranch_1.0
-git checkout branch_1.0/master ÇĞ»»µ½branch_1.0/master·ÖÖ§
+git fetch ç›¸å½“äºæ˜¯ä»è¿œç¨‹è·å–æœ€æ–°ç‰ˆæœ¬åˆ°æœ¬åœ°ï¼Œä¸ä¼šè‡ªåŠ¨merge
+git commit -a -m "log_message" (-aæ˜¯æäº¤æ‰€æœ‰æ”¹åŠ¨ï¼Œ-mæ˜¯åŠ å…¥logä¿¡æ¯) æœ¬åœ°ä¿®æ”¹åŒæ­¥è‡³æœåŠ¡å™¨ç«¯ ï¼š
+git branch branch_0.1 master ä»ä¸»åˆ†æ”¯masteråˆ›å»ºbranch_0.1åˆ†æ”¯
+git branch -m branch_0.1 branch_1.0 å°†branch_0.1é‡å‘½åä¸ºbranch_1.0
+git checkout branch_1.0/master åˆ‡æ¢åˆ°branch_1.0/masteråˆ†æ”¯
 du -hs
 
-git branch É¾³ıÔ¶³Ìbranch
+git branch åˆ é™¤è¿œç¨‹branch
 git push origin :branch_remote_name
 git branch -r -d branch_remote_name
 -----------------------------------------------------------
@@ -65,7 +70,7 @@ git remote add origin git@github.com:wwj202/memo.git
 git fetch
 git pull origin master
 touch README
-git add README Ìí¼ÓÎÄ¼ş
+git add README æ·»åŠ æ–‡ä»¶
 git add .
 git status
 git commit -m "init project"
