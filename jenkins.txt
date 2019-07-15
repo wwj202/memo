@@ -1,0 +1,60 @@
+jenkins服务搭建步骤
+
+1、安装JDK
+在线安装，或者将JDK安装包复制到服务器上解压即可。
+例如解压到 /export/jdk1.8.0 目录
+
+2、安装jenkins
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+yum install jenkins
+安装完成之后： 
+/usr/lib/jenkins/jenkins.war    WAR包 
+/etc/sysconfig/jenkins       配置文件
+/var/lib/jenkins/       默认的JENKINS_HOME目录
+/var/log/jenkins/jenkins.log    Jenkins日志文件
+
+3、启动jenkins
+a. 首先更改一下jenkins配置文件中的java目录：vim /etc/init.d/jenkins
+将java命令所在目录（例如：/export/jdk1.8.0/bin/java）加入到candidates中，放在第一个，如下所示：
+candidates="
+/export/jdk1.8.0/bin/java
+/etc/alternatives/java
+/usr/lib/jvm/java-1.8.0/bin/java
+/usr/lib/jvm/jre-1.8.0/bin/java
+b. 启动jenkins:  service jenkins start
+然后访问 http://localhost:8080 开始进行解锁，初始密码可在Jenkins日志文件中找到
+如果解锁完登录后出现空白页面，则重启jenkins即可：service jenkins restart
+
+4、安装插件：maven, git
+登录jenkins  ->  Manage Jenkins  ->  Manage Plugins  ->  Available  搜索并安装Maven Integration、Maven SNAPSHOT Check Plugin、Git、Git client plugin、GitLab
+
+5、配置git访问权限
+在服务器上以root用户执行命令：ssh-keygen -t rsa
+将生成的/root/.ssh/id_rsa.pub的内容复制出来，添加到git项目的deploy key中，Settings -> Repository -> deploy keys，添加一个新的deploy key。
+在jenkins中，添加一个全局凭据，类型选择“SSH Username with private key”，username填写root，将生成的/root/.ssh/id_rsa的内容复制出来作为private key。
+
+6、Maven安装
+可以选择复制压缩包apache-maven-3.6.1-bin.tar.gz到服务器上解压。
+比如解压到 /export/apache-maven-3.6.1
+
+7、jenkins中java和maven配置
+系统管理 -> 全局工具配置， 分别配置好java和maven的安装目录，例如JAVA_HOME配置成/export/jdk1.8.0，MAVEN_HOME配置成/export/apache-maven-3.6.1
+
+8、如果需要通过rsync将文件同步到其他机器，则需要配置公钥：
+a. 修改/etc/passwd，将jenkins用户的 /bin/false 改成 /bin/bash
+b. 切换到jenkins用户：su - jenkins
+c. vim ~/.bash_profile，添加一行：export PS1='[\u@\h \W]\$'，保存后，执行命令：source ~/.bash_profile
+d. 给jenkins生成密钥对：ssh-keygen -t rsa
+e. 将jenkins的公钥复制到rsync的目标机器：ssh-copy-id -i ~/.ssh/id_rsa.pub root@x.x.x.x，其中x.x.x.x是目标机器的ip，执行该命令时需要输入目标机器的root密码
+
+
+
+另： npm安装
+wget https://npm.taobao.org/mirrors/node/v10.16.0/node-v10.16.0-linux-x64.tar.gz
+tar -zxvf node-v10.16.0-linux-x64.tar.gz
+mv node-v10.16.0-linux-x64 node-v10.16.0
+ln -s /export/node-v10.16.0/bin/node   /usr/bin/
+ln -s /export/node-v10.16.0/bin/npm   /usr/bin/
+
+更改npm registry地址：npm config set registry http://registry.m.jd.com
