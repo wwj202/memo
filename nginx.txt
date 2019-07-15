@@ -1,0 +1,26 @@
+Linux install
+yum install gcc-c++
+yum install -y pcre pcre-devel
+yum install -y zlib zlib-devel
+yum install -y openssl openssl-devel
+wget -c http://nginx.org/download/nginx-1.15.5.tar.gz
+tar -zxvf nginx-1.15.5.tar.gz
+cd nginx-1.15.5
+./configure
+make
+make install
+
+Windows
+Run the tasklist command-line utility to see nginx processes:
+C:\nginx-1.15.1>tasklist /fi "imagename eq nginx.exe"
+
+Image Name           PID Session Name     Session#    Mem Usage
+=============== ======== ============== ========== ============
+nginx.exe            652 Console                 0      2 780 K
+nginx.exe           1332 Console                 0      3 112 K
+
+commands:
+nginx -s stop	fast shutdown
+nginx -s quit	graceful shutdown
+nginx -s reload	changing configuration, starting new worker processes with a new   configuration, graceful shutdown of old worker processes
+nginx -s reopen	re-opening log files
