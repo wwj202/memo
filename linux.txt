@@ -1,0 +1,43 @@
+cp
+-a：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合。
+-d：复制时保留链接。这里所说的链接相当于Windows系统中的快捷方式。
+-f：覆盖已经存在的目标文件而不给出提示。
+-i：与-f选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答"y"时目标文件将被覆盖。
+-p：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。
+-r：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。
+-l：不复制文件，只是生成链接文件。
+
+sz rz安装
+wget http://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz
+tar zxvf lrzsz-0.12.20.tar.gz && cd lrzsz-0.12.20
+./configure && make && make install
+cd /usr/bin
+ln -s /usr/local/bin/lrz rz
+ln -s /usr/local/bin/lsz sz
+----------------------------------
+yum install -y lrzsz
+
+vim安装
+yum -y install vim*
+配置：
+sudo vim /etc/vim/vimrc
+syntax on  语法高亮
+请在您的VIM的最后一行，输入他们，可以让您的VIM变得更漂亮、舒服。
+set nu                           // 在左侧行号
+set tabstop                  //tab 长度设置为 4
+set nobackup               //覆盖文件时不备份
+set cursorline               //突出显示当前行
+set ruler                       //在右下角显示光标位置的状态行
+set autoindent             //自动缩进
+VIM 删除行：dd删除当前行，d5d删除当前5行
+复制行：yy复制当前行，5yy复制当前5行，p粘贴
+撤销上一步操作：u，恢复上一步撤销的操作Ctrl + r
+替换：:%s/foo/bar/g（将所有的foo替换成bar）
+
+fdisk -l
+fdisk /dev/sdb
+n p w
+mkfs -t ext4 /dev/sdb5
+mount /dev/sdb5 /data1
+vim /etc/fstab
+/dev/sdb5 /data1 ext4 defaults 1 2
