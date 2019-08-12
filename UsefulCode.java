@@ -6,4 +6,5 @@ listResult.sort((map1, map2) -> {
             return date1.compareTo(date2);
         });
         
-        
+listResult.sort(Comparator.comparing(map -> map.get("time").toString()));
+
