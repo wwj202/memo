@@ -2,3 +2,4 @@
 sudo spctl --master-disable
 https://www.jianshu.com/p/e5ce850bba42
 
+
