@@ -107,3 +107,25 @@ DATE_FORMAT(date,format)
 %U 星期(0……52), 这里星期天是星期的第一天  
 %u 星期(0……52), 这里星期一是星期的第一天  
 %% 一个文字“%”。  
+
+--------------------------------------------------------
+
+其他配置
+1、设置安全选项：
+mysql_secure_installation
+2、关闭MySQL
+systemctl stop mysqld 
+3、重启MySQL
+systemctl restart mysqld 
+4、查看MySQL运行状态
+systemctl status mysqld 
+5、设置开机启动
+systemctl enable mysqld 
+6、关闭开机启动
+systemctl disable mysqld 
+7、配置默认编码为utf8：
+vi /etc/my.cnf #添加 [mysqld] character_set_server=utf8 init_connect='SET NAMES utf8'
+其他默认配置文件路径： 
+配置文件：/etc/my.cnf 日志文件：/var/log//var/log/mysqld.log 服务启动脚本：/usr/lib/systemd/system/mysqld.service socket文件：/var/run/mysqld/mysqld.pid
+8、查看版本
+select version();
