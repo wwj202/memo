@@ -15,6 +15,45 @@ window安装：
  5.8 在任务管理器下手动结束mysqld.exe
 6. net mysql start
 
+--------------------------------------------------------------
+
+CentOS(yum install):
+1. remove mariadb:
+rpm -qa | grep mariadb
+rpm -e mariadb-libs-5.5.56-2.el7.x86_64
+if failed: rpm -e --nodeps mariadb-libs-5.5.56-2.el7.x86_64
+
+2. download and add yum repo:
+wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+rpm -Uvh mysql80-community-release-el6-n.noarch.rpm
+
+3. modify:
+/etc/yum.repos.d/mysql-community.repo
+# edit the enabled value for the versions.
+yum repolist enabled | grep mysql
+
+4. Disabling the Default MySQL Module:
+yum module disable mysql
+
+5. install
+yum install mysql-community-server
+
+6. start:
+systemctl start mysqld
+grep 'temporary password' /var/log/mysqld.log
+
+7. login, change password:
+mysql -u root -p
+set global validate_password_policy=LOW;
+ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+
+8. enable remote access:
+use mysql;
+update user set Host='%' where User='root';
+flush privileges;
+
+--------------------------------------------------------------
+
 导入导出命令：
 1.导出整个数据库
 mysqldump -u 用户名 -p 数据库名 > 导出的文件名
