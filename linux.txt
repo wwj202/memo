@@ -18,7 +18,14 @@ ln -s /usr/local/bin/lsz sz
 yum install -y lrzsz
 
 vim安装
-yum -y install vim*
+rpm -qa|grep vim
+# list the components:
+vim-filesystem-7.4.160-4.el7.x86_64
+vim-common-7.4.160-4.el7.x86_64
+vim-enhanced-7.4.160-4.el7.x86_64
+vim-minimal-7.4.160-4.el7.x86_64
+#如果缺少某一个，则单独安装，如：yum -y install vim-enhanced
+一次安装所有：yum -y install vim*
 配置：
 sudo vim /etc/vim/vimrc
 syntax on  语法高亮
