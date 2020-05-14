@@ -48,3 +48,6 @@ mkfs -t ext4 /dev/sdb5
 mount /dev/sdb5 /data1
 vim /etc/fstab
 /dev/sdb5 /data1 ext4 defaults 1 2
+
+查看文件及文件夹大小：
+du -lh --max-depth=1 -a
