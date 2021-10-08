@@ -52,6 +52,11 @@ use mysql;
 update user set Host='%' where User='root';
 flush privileges;
 
+9. create and grant user
+create user 'xxxx'@'%' identified by 'pwd123456';
+grant select on db_yyy.t_xxxx to 'xxxx'@'%' identified by 'pwd123456';
+flush privileges;
+
 --------------------------------------------------------------
 
 导入导出命令：
